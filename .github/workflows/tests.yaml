@@ -1,0 +1,12 @@
+name: Shellcheck
+on: [pull_request, push]
+
+jobs:
+  shellcheck:
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get install shellcheck
+      - run: ls -la
+      - run: find . -type f -regex ".*\(bash|sh\)$" -exec shellcheck {} \;
