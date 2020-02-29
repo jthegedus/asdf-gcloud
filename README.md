@@ -14,12 +14,12 @@ asdf plugin add gcloud
 
 # Contents
 
-- [Pre-requisits](#pre-requisits)
+- [Dependencies](#Dependencies)
 - [Install](#install)
 - [Contributing](#contributing)
 - [License](#license)
 
-# Pre-requisits
+# Dependencies
 
 - Python 2 or Python 3
 - set `CLOUDSDK_PYTHON` environment variable in your shell config to load the correct version of Python.
