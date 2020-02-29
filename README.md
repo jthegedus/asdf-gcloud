@@ -14,7 +14,7 @@ asdf plugin add gcloud
 
 # Contents
 
-- [Dependencies](#Dependencies)
+- [Dependencies](#dependencies)
 - [Install](#install)
 - [Contributing](#contributing)
 - [License](#license)
