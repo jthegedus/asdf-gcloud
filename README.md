@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-gcloud
+# asdf-gcloud ![Shellcheck](https://github.com/jthegedus/asdf-gcloud/workflows/Shellcheck/badge.svg)
 
 GCloud CLI plugin for [asdf](https://asdf-vm.com) version manager.
 
