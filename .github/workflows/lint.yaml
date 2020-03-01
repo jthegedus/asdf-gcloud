@@ -1,0 +1,20 @@
+name: Lint
+on:
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  push:
+    paths-ignore:
+      - "**.md"
+  schedule:
+    - cron: "0 0 * * *" # daily at midnight
+
+jobs:
+  shellcheck:
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Shellcheck
+        run: shellcheck bin/*

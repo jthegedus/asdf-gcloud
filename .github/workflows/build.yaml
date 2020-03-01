@@ -1,4 +1,4 @@
-name: Tests
+name: Build
 on:
   pull_request:
     paths-ignore:
@@ -10,15 +10,6 @@ on:
     - cron: "0 0 * * *" # daily at midnight
 
 jobs:
-  shellcheck:
-    name: shellcheck
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Shellcheck
-        run: shellcheck bin/*
-
   plugin_test:
     name: asdf plugin test
     strategy:
