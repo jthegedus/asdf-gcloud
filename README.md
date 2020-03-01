@@ -26,15 +26,29 @@ asdf plugin add gcloud
 
 # Install
 
+Plugin:
+
 ```shell
 asdf plugin add gcloud
 # or
 asdf plugin add https://github.com/jthegedus/asdf-gcloud.git
 ```
 
+GCloud:
+
+```shell
+asdf install gcloud 282.0.0
+```
+
+Set global version:
+
+```shell
+asdf global gcloud 282.0.0
+```
+
 # Contributing
 
-Contributions of any kind welcome!
+Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/jthegedus/asdf-gcloud/graphs/contributors)!
 
