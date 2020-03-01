@@ -9,5 +9,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: sudo apt-get install shellcheck
       - run: ls -la
-      - run: find . -regextype posix-extended -regex '^.*\.(bash|sh)$' \;
+      - run: find . -regextype posix-extended -regex '^.*\.(bash|sh)$'
       - run: find . -regextype posix-extended -regex '^.*\.(bash|sh)$' -exec shellcheck {} \;
