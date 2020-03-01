@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# url=https://storage.googleapis.com/cloud-sdk-release
+install() {
+    printf "Install specified GCloud CLI version\\n"
+}
+
+install
+
+# google-cloud-sdk-282.0.0-linux-x86_64.tar.gz
+
+# https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+# https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-282.0.0-linux-x86_64.tar.gz
+
+# archive
+# https://storage.googleapis.com/cloud-sdk-release
