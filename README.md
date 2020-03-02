@@ -1,6 +1,6 @@
 <div align="center">
 
-# asdf-gcloud ![Shellcheck](https://github.com/jthegedus/asdf-gcloud/workflows/Shellcheck/badge.svg)
+# asdf-gcloud ![Build](https://github.com/jthegedus/asdf-gcloud/workflows/Build/badge.svg) ![Lint](https://github.com/jthegedus/asdf-gcloud/workflows/Lint/badge.svg)
 
 GCloud CLI plugin for [asdf](https://asdf-vm.com) version manager.
 
@@ -55,4 +55,3 @@ Contributions of any kind welcome! See the [contributing guide](contributing.md)
 # License
 
 [MIT License](LICENSE) © [James Hegedus](https://github.com/jthegedus/)
-
