@@ -2,9 +2,22 @@
 
 set -euo pipefail
 
+download_extract() {
+    printf "Downloading"
+
+    printf "Extract to.."
+}
+
 # url=https://storage.googleapis.com/cloud-sdk-release
 install() {
     printf "Install specified GCloud CLI version\\n"
+    printf "type: %s" "${ASDF_INSTALL_TYPE}"
+    printf "version: %s" "${ASDF_INSTALL_VERSION}"
+    printf "type: %s" "${ASDF_INSTALL_PATH}"
+
+    # download file for version & os
+    download_extract
+    # run install script - pass DIR to install to asdf location
 }
 
 install
