@@ -18,4 +18,4 @@ function list_all() {
     done
 }
 
-list_all | sort -V
+list_all | sort -V | tr '\n' ' '
