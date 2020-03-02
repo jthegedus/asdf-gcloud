@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-
-download_extract() {
-    printf "Downloading"
-
-    printf "Extract to.."
-}
+gcs_bucket_name=cloud-sdk-release
+gcs_object_os=""
+os_support_error="🚨  Script only supports macOS and Ubuntu"
 
 # url=https://storage.googleapis.com/cloud-sdk-release
 install() {
@@ -15,9 +12,34 @@ install() {
     printf "version: %s" "${ASDF_INSTALL_VERSION}"
     printf "type: %s" "${ASDF_INSTALL_PATH}"
 
+    # get os
+    osType="$(uname -s)"
+
+    # create object name
+    case "${osType}" in
+    Linux*)
+        gcs_object_os="linux"
+        ;;
+    Darwin*)
+        gcs_object_os="darwin"
+        ;;
+    *)
+        printf "%s\\n" "${os_support_error}"
+        exit 1
+        ;;
+    esac
+
+    gcs_object="google-cloud-sdk-${ASDF_INSTALL_VERSION}-${gcs_object_os}-x68_64.tar.gz"
+
     # download file for version & os
-    download_extract
-    # run install script - pass DIR to install to asdf location
+    curl \
+        "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}" \
+        --compressed
+    mkdir test
+    unzip gcs_object.tar.gz -d test/
+
+    # extract to asdf plugin location for the version
+    # run the intall.sh script to add to path etc?
 }
 
 install
