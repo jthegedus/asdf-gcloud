@@ -1,34 +1,9 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-os_support_error="🚨  Script only supports macOS and Ubuntu"
 
-get_os_name() {
-    local os_name
-    case $(uname -s) in
-    Linux*)
-        os_name="linux"
-        ;;
-    Darwin*)
-        os_name="darwin"
-        ;;
-    *)
-        printf "%s\\n" "${os_support_error}"
-        exit 1
-        ;;
-    esac
-    echo "${os_name}"
-}
-
-get_os_architecture() {
-    local arch
-    if [[ $(getconf LONG_BIT) == "64" ]]; then
-        arch="x86_64"
-    else
-        arch="x86"
-    fi
-    echo "${arch}"
-}
+# shellcheck source=../lib/utils.bash
+source "$(dirname "$0")/../lib/utils.bash"
 
 install_gcloud() {
     local asdf_install_type="$1"
@@ -52,25 +27,24 @@ install_gcloud() {
     gcs_object="google-cloud-sdk-${asdf_install_version}-${os_name}-${os_architecture}.tar.gz"
 
     printf "⏬  downloading... %s\\n" "${gcs_object}"
-    if [[ -e "${gcs_object}" ]]; then
+    tmp_download_dir="$(mktemp -d -t 'asdf_gcloud_XXXXXX')"
+    trap 'rm -rf "${tmp_download_dir}"' EXIT
+    if [[ -e "${tmp_download_dir}/${gcs_object}" ]]; then
         printf "✅  using cached download!\\n"
     else
         curl -X GET \
-            -o "./${gcs_object}" \
+            -o "${tmp_download_dir}/${gcs_object}" \
             "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media"
-        printf "✅  download successful!\\n"
+        printf "✅  downloaded!\\n"
     fi
-    # extract to asdf plugin location for the version
     printf "📦  extracting...\\n"
-    tar -C "${asdf_install_path}" -zxf "${gcs_object}"
-    printf "✅  extract successful!\\n"
-    # install and add to PATH
+    tar -zxf "${tmp_download_dir}/${gcs_object}" -C "${asdf_install_path}" --strip-components=1
+    printf "✅  extracted!\\n"
     printf "🚧  installing...\\n"
-    printf "    ⚠️  ensure CLOUDSDK_PYTHON is set in you shell profile\\n"
-    echo "$PATH"
-    "${asdf_install_path}/google-cloud-sdk/install.sh" --usage-reporting=false --path-update=false --quiet
-    printf "✅  install successful!\\n"
-    # TODO: instruct on setup of shell completions
+    printf "    ⚠️  CLOUDSDK_PYTHON must be set in you shell profile\\n"
+    "${asdf_install_path}/install.sh" --usage-reporting=false --path-update=false --quiet
+    printf "✅  gcloud %s installed!\\n" "${asdf_install_version}"
+    # TODO: instruct on setup of shell completions. This should be some form of ".asdf/installs/gcloud/$version/completions
 }
 
 # shellcheck disable=SC2153

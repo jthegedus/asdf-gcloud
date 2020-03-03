@@ -17,4 +17,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Shellcheck
-        run: shellcheck bin/*
+        run: shellcheck -x bin/* -P lib/
