@@ -2,20 +2,29 @@
 
 set -euo pipefail
 
-gcs_bucket_name=cloud-sdk-release
-gcs_object_prefix=google-cloud-sdk
-declare -a page_tokens=("" "Cihnb29nbGUtY2xvdWQtc2RrLTIwNy4wLjAtd2luZG93cy14ODYuemlw")
+gcs_bucket_name="cloud-sdk-release"
+gcs_object_prefix="google-cloud-sdk"
+gcs_object_fields="kind,nextPageToken,items(name)"
 
 function fetch() {
-    curl --silent GET "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o?pageToken=${1}&prefix=${gcs_object_prefix}" |
-        grep -Eo "id.*google-cloud-sdk-[0-9]+\.[0-9]+\.[0-9]+-(linux)-x86_64" |
-        grep -Eo "[0-9]+\.[0-9]+\.[0-9]+"
+    curl --silent GET "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o?pageToken=${1}&prefix=${gcs_object_prefix}&fields=${gcs_object_fields}"
 }
 
 function list_all() {
-    for i in "${page_tokens[@]}"; do
-        fetch "$i"
+    local more=true
+    local nextPageToken=""
+    local list=""
+    while "${more}"; do
+        res=$(fetch "${nextPageToken}")
+        if [[ "${res}" =~ nextPageToken\"\:\ \"([a-zA-Z0-9]+)\" ]]; then
+            nextPageToken="${BASH_REMATCH[1]}"
+        else
+            more=false
+        fi
+        additions=$(echo "${res}" | grep -Eo "name.*google-cloud-sdk-[0-9]+\.[0-9]+\.[0-9]+-(linux)-x86_64" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+")
+        list="${list}${additions}"
     done
+    echo "${list}"
 }
 
 list_all | sort -V | tr '\n' ' '

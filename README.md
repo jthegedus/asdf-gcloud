@@ -10,12 +10,6 @@
 
 </div>
 
-# Quickstart
-
-```shell
-asdf plugin add gcloud
-```
-
 # Contents
 
 - [Dependencies](#dependencies)
