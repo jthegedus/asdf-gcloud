@@ -5,47 +5,58 @@ set -euo pipefail
 # shellcheck source=../lib/utils.bash
 source "$(dirname "$0")/../lib/utils.bash"
 
-install_gcloud() {
-    local asdf_install_type="$1"
-    local asdf_install_version="$2"
-    local asdf_install_path="$3"
+download() {
     local gcs_bucket_name="cloud-sdk-release"
-    local os_name
-    os_name=$(get_os_name)
-    local os_architecture
-    os_architecture=$(get_os_architecture)
+    local gcs_object="${1}"
+    local tmp_download_dir="${2}"
 
-    printf "++++++++++++++++++\\n"
-    printf "ℹ️  type:\\t\\t%s\\n" "${asdf_install_type}"
-    printf "ℹ️  version:\\t\\t%s\\n" "${asdf_install_version}"
-    printf "ℹ️  install path:\\t%s\\n" "${asdf_install_path}"
-    printf "ℹ️  os name:\\t\\t%s\\n" "${os_name}"
-    printf "ℹ️  os arch:\\t\\t%s\\n" "${os_architecture}"
-    printf "++++++++++++++++++\\n"
+    printf "⏬  downloading %s\\n" "${gcs_object}"
+    curl -X GET \
+        -o "${tmp_download_dir}/${gcs_object}" \
+        "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media"
+    printf "✅  downloaded!\\n"
+}
 
-    printf "🔍  finding gcloud version\\n"
-    gcs_object="google-cloud-sdk-${asdf_install_version}-${os_name}-${os_architecture}.tar.gz"
+verify() {
+    local gcs_tar_location="${1}"
 
-    printf "⏬  downloading... %s\\n" "${gcs_object}"
-    tmp_download_dir="$(mktemp -d -t 'asdf_gcloud_XXXXXX')"
-    trap 'rm -rf "${tmp_download_dir}"' EXIT
-    if [[ -e "${tmp_download_dir}/${gcs_object}" ]]; then
-        printf "✅  using cached download!\\n"
-    else
-        curl -X GET \
-            -o "${tmp_download_dir}/${gcs_object}" \
-            "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media"
-        printf "✅  downloaded!\\n"
-    fi
+    printf "🔬  verifying %s\\n" "${gcs_tar_location}"
+    # TODO: check file md5
+    #   - fetch metadata
+    #   - check md5 value
+    printf "✅  verified!\\n"
+}
+
+extract() {
+    local gcs_tar_location="${1}"
+
     printf "📦  extracting...\\n"
-    tar -zxf "${tmp_download_dir}/${gcs_object}" -C "${asdf_install_path}" --strip-components=1
+    tar -zxf "${gcs_tar_location}" -C "${ASDF_INSTALL_PATH}" --strip-components=1
     printf "✅  extracted!\\n"
+}
+
+install_gcloud() {
     printf "🚧  installing...\\n"
     printf "    ⚠️  CLOUDSDK_PYTHON must be set in you shell profile\\n"
-    "${asdf_install_path}/install.sh" --usage-reporting=false --path-update=false --quiet
-    printf "✅  gcloud %s installed!\\n" "${asdf_install_version}"
+    "${ASDF_INSTALL_PATH}/install.sh" --usage-reporting=false --path-update=false --quiet
+    printf "✅  gcloud %s installed!\\n" "${ASDF_INSTALL_VERSION}"
     # TODO: instruct on setup of shell completions. This should be some form of ".asdf/installs/gcloud/$version/completions
 }
 
-# shellcheck disable=SC2153
-install_gcloud "${ASDF_INSTALL_TYPE}" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
+setup() {
+    tmp_download_dir=$(mktemp -d -t 'asdf_gcloud_XXXXXX')
+    trap 'rm -rf "${tmp_download_dir}"' EXIT
+
+    gcs_object="google-cloud-sdk-${ASDF_INSTALL_VERSION}-$(get_os_name)-$(get_os_architecture).tar.gz"
+
+    download "${gcs_object}" "${tmp_download_dir}"
+
+    verify "${tmp_download_dir}/${gcs_object}"
+
+    extract "${tmp_download_dir}/${gcs_object}"
+
+    install_gcloud
+}
+
+# TODO: handle both types in - "${ASDF_INSTALL_TYPE}"
+setup
