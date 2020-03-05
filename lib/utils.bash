@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-os_support_error="🚨  Script only supports macOS and Ubuntu"
-
 get_os_name() {
     local os_name
     case $(uname -s) in
@@ -14,7 +12,7 @@ get_os_name() {
         os_name="darwin"
         ;;
     *)
-        printf "%s\\n" "${os_support_error}"
+        printf "🚨  Script only supports macOS and Ubuntu\\n"
         exit 1
         ;;
     esac
