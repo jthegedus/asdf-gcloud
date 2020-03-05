@@ -14,13 +14,19 @@
 
 - [Dependencies](#dependencies)
 - [Install](#install)
+- [Why?](#why)
 - [Contributing](#contributing)
 - [License](#license)
 
 # Dependencies
 
-- Python 2 or Python 3.
-- set `CLOUDSDK_PYTHON` environment variable in your shell config to load the correct version of Python.
+- `bash`, `curl`, `tar`, `python`
+- `CLOUDSDK_PYTHON`: set this environment variable in your shell config to load the correct version of Python.
+
+  ```shell
+  python_sdk="$(command -v python)"
+  export CLOUDSDK_PYTHON="${python_sdk}"
+  ```
 
 # Install
 
@@ -35,14 +41,18 @@ asdf plugin add https://github.com/jthegedus/asdf-gcloud.git
 GCloud:
 
 ```shell
-asdf install gcloud 282.0.0
+asdf install gcloud 283.0.0
 ```
 
 Set global version:
 
 ```shell
-asdf global gcloud 282.0.0
+asdf global gcloud 283.0.0
 ```
+
+# Why?
+
+The asdf config file, `.tool-versions`, allows pinning each tool in your project to a specific version. This ensures that ALL developers are using the same version of each tool. Same `python`, same `gcloud`, same `terraform` etc.
 
 # Contributing
 
