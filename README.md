@@ -56,7 +56,7 @@ The asdf config file, `.tool-versions`, allows pinning each tool in your project
 
 # Contributing
 
-Contributions of any kind welcome! See the [contributing guide](contributing.md) for a list of items to tackle.
+Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/jthegedus/asdf-gcloud/graphs/contributors)!
 
