@@ -11,20 +11,16 @@ download() {
     local tmp_download_dir="${2}"
 
     printf "⏬  downloading %s\\n" "${gcs_object}"
-    curl -X GET \
-        -o "${tmp_download_dir}/${gcs_object}" \
-        "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media"
+    status_code=$(curl -X GET \
+        --write-out "%{http_code}" \
+        -Lo "${tmp_download_dir}/${gcs_object}" \
+        "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media")
+
+    if [[ ${status_code} -eq 404 ]]; then
+        printf "🚨  gcloud not found for version %s. Full version required, not just major version numbers.\\n" "${ASDF_INSTALL_VERSION}"
+        exit 1
+    fi
     printf "✅  downloaded!\\n"
-}
-
-verify() {
-    local gcs_tar_location="${1}"
-
-    printf "🔬  verifying %s\\n" "${gcs_tar_location}"
-    # TODO: check file md5
-    #   - fetch metadata
-    #   - check md5 value
-    printf "✅  verified!\\n"
 }
 
 extract() {
@@ -40,7 +36,6 @@ install_gcloud() {
     printf "    ⚠️  CLOUDSDK_PYTHON must be set in you shell profile\\n"
     "${ASDF_INSTALL_PATH}/install.sh" --usage-reporting=false --path-update=false --quiet
     printf "✅  gcloud %s installed!\\n" "${ASDF_INSTALL_VERSION}"
-    # TODO: instruct on setup of shell completions. This should be some form of ".asdf/installs/gcloud/$version/completions
 }
 
 setup() {
@@ -51,12 +46,15 @@ setup() {
 
     download "${gcs_object}" "${tmp_download_dir}"
 
-    verify "${tmp_download_dir}/${gcs_object}"
-
     extract "${tmp_download_dir}/${gcs_object}"
 
     install_gcloud
+
+    # TODO: instruct on setup of shell completions. This should be some form of ".asdf/installs/gcloud/$version/completions
 }
 
-# TODO: handle both types in - "${ASDF_INSTALL_TYPE}"
+if [ "${ASDF_INSTALL_TYPE}" != "version" ]; then
+    printf "🚨  Please provide the gcloud version number you wish to install.\\n"
+fi
+
 setup
