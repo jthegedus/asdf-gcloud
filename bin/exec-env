@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if ! [ -x "$(command -v python)" ]; then
+    printf " Python not found. Please install python. Might I suggest https://github.com/danhper/asdf-python"
+    exit 1
+fi
+
+if [ "$CLOUDSDK_PYTHON" = "" ]; then
+    python_sdk="$(command -v python)"
+    export CLOUDSDK_PYTHON="${python_sdk}"
+fi

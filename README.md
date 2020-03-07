@@ -21,12 +21,6 @@
 # Dependencies
 
 - `bash`, `curl`, `tar`, `python`
-- `CLOUDSDK_PYTHON`: set this environment variable in your shell config to load the correct version of Python.
-
-  ```shell
-  python_sdk="$(command -v python)"
-  export CLOUDSDK_PYTHON="${python_sdk}"
-  ```
 
 # Install
 
