@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Google Cloud SDK uninstall instructions - https://cloud.google.com/sdk/docs/uninstall-cloud-sdk
+
+gcloud_config_path=$(gcloud info --format='value(config.paths.global_config_dir)')
+
+printf "ℹ️  Your gcloud project configuration(s) persist in %s\\n" "${gcloud_config_path}"
