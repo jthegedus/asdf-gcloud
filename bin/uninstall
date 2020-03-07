@@ -4,6 +4,6 @@ set -euo pipefail
 
 # Google Cloud SDK uninstall instructions - https://cloud.google.com/sdk/docs/uninstall-cloud-sdk
 
-printf "ℹ️  Your gcloud project configuration(s) persist in ~/.config/gcloud\\n"
+printf "ℹ️  Your gcloud project configuration(s) persist in you gcloud configuration directory. Usually ~/.config/gcloud\\n"
 
 rm -rf "$ASDF_INSTALL_PATH"
