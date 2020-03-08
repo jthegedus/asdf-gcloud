@@ -33,7 +33,6 @@ extract() {
 
 install_gcloud() {
     printf "🚧  installing...\\n"
-    printf "    ⚠️  CLOUDSDK_PYTHON must be set in you shell profile\\n"
     "${ASDF_INSTALL_PATH}/install.sh" --usage-reporting=false --path-update=false --quiet
     printf "✅  gcloud %s installed!\\n" "${ASDF_INSTALL_VERSION}"
 }
