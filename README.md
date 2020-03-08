@@ -6,7 +6,7 @@
     <img src="images/logo_lockup_cloud_rgb.png" height="42" align="middle" />
 </a>
 
-[GCloud CLI](https://cloud.google.com/sdk/gcloud/reference) plugin for [asdf version manager](https://asdf-vm.com).
+[GCloud CLI](https://cloud.google.com/sdk/gcloud/reference) plugin for [asdf version manager](https://asdf-vm.com) allowing you to pin `gcloud` versions for each GCP project.
 
 </div>
 
@@ -20,15 +20,13 @@
 
 # Dependencies
 
-- `bash`, `curl`, `tar`, `python`
+- `bash`, `curl`, `tar`, `sort`, `python`
 
 # Install
 
 Plugin:
 
 ```shell
-asdf plugin add gcloud
-# or
 asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud.git
 ```
 
