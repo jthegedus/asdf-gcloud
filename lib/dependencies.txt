@@ -1,11 +1,15 @@
 bash
 curl
+dirname
 echo
 getconf
+grep
+mktemp
 printf
 python
 rm
 source
 sort
 tar
+tr
 uname

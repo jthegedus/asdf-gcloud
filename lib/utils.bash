@@ -44,8 +44,7 @@ function check_dependencies() {
             log_info "You should install the listed dependencies before continuing."
         else
             log_failure "Missing dependencies! These are hard requirements to install the Google Cloud SDK."
-            log_failure "${missing_dependencies[@]}"
-            exit 1
+            log_failure_and_exit "${missing_dependencies[@]}"
         fi
     else
         log_success "All dependencies found on system!"
