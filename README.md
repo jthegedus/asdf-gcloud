@@ -20,7 +20,7 @@
 
 # Dependencies
 
-- `bash`, `curl`, `tar`, `sort`, `python`
+Are tracked in [lib/dependencies.txt](lib/dependencies.txt) and checked on installation of plugin and `asdf install gcloud *`. The core dependencies are: `bash`, `curl`, `python`, `sort`, `tar`.
 
 # Install
 

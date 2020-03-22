@@ -8,5 +8,3 @@ source "$(dirname "$0")/../lib/utils.bash"
 # Google Cloud SDK uninstall instructions - https://cloud.google.com/sdk/docs/uninstall-cloud-sdk
 
 log_info "ℹ️  Your gcloud project configuration(s) persist in you gcloud configuration directory. Usually ~/.config/gcloud"
-
-rm -rf "${ASDF_INSTALL_PATH}"
