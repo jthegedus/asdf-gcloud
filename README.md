@@ -27,7 +27,10 @@ Are tracked in [lib/dependencies.txt](lib/dependencies.txt) and checked on insta
 Plugin:
 
 ```shell
+# prefer the git url method
 asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud.git
+# or
+asdf plugin add gcloud
 ```
 
 GCloud:
