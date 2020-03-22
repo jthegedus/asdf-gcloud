@@ -28,7 +28,7 @@ function log_warning() {
 function check_dependencies() {
     local dependencies_file="${1}"
     local failure_type="${2}" # should be "warning" or "failure"
-    declare -a missing_dependencies
+    declare -a missing_dependencies=()
 
     # loop over file of line separated list of dependencies required by this tool
     while IFS="" read -r p || [ -n "${p}" ]; do
