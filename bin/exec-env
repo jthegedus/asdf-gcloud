@@ -2,9 +2,11 @@
 
 set -euo pipefail
 
+# shellcheck source=../lib/utils.bash
+source "$(dirname "$0")/../lib/utils.bash"
+
 if [[ ! -x "$(command -v python)" ]]; then
-    printf "🚨  Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python\\n"
-    exit 1
+    log_failure_and_exit "Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python"
 fi
 
 # stolen from https://unix.stackexchange.com/a/56846/397902

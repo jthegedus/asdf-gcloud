@@ -1,0 +1,11 @@
+bash
+curl
+echo
+getconf
+printf
+python
+rm
+source
+sort
+tar
+uname
