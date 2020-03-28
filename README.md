@@ -15,6 +15,7 @@
 - [Dependencies](#dependencies)
 - [Install](#install)
 - [Why?](#why)
+- [Default Cloud SDK Components](#default-cloud-sdk-components)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -48,6 +49,65 @@ asdf global gcloud 285.0.1
 # Why?
 
 The asdf config file, `.tool-versions`, allows pinning each tool in your project to a specific version. This ensures that ALL developers are using the same version of each tool. Same `python`, same `gcloud`, same `terraform` etc.
+
+# Default Cloud SDK Components
+
+`asdf-gcloud` can automatically install a set of Cloud SDK Components after each `asdf install gcloud <version>`. To enable this feature, provide a `${HOME}/.config/gcloud/.default-cloud-sdk-components` file that lists one COMPONENT_ID per line. For example:
+
+```
+alpha
+beta
+cloud-build-local
+cloud-firestore-emulator
+```
+
+Below is the list of available components (as of version `286.0.0`):
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                 Components                                                 │
+├───────────────┬──────────────────────────────────────────────────────┬──────────────────────────┬──────────┤
+│     Status    │                         Name                         │            ID            │   Size   │
+├───────────────┼──────────────────────────────────────────────────────┼──────────────────────────┼──────────┤
+│ Not Installed │ App Engine Go Extensions                             │ app-engine-go            │  4.8 MiB │
+│ Not Installed │ Appctl                                               │ appctl                   │ 17.5 MiB │
+│ Not Installed │ Cloud Bigtable Command Line Tool                     │ cbt                      │  7.6 MiB │
+│ Not Installed │ Cloud Bigtable Emulator                              │ bigtable                 │  6.6 MiB │
+│ Not Installed │ Cloud Datalab Command Line Tool                      │ datalab                  │  < 1 MiB │
+│ Not Installed │ Cloud Datastore Emulator                             │ cloud-datastore-emulator │ 18.4 MiB │
+│ Not Installed │ Cloud Firestore Emulator                             │ cloud-firestore-emulator │ 40.3 MiB │
+│ Not Installed │ Cloud Pub/Sub Emulator                               │ pubsub-emulator          │ 34.9 MiB │
+│ Not Installed │ Cloud SQL Proxy                                      │ cloud_sql_proxy          │  3.7 MiB │
+│ Not Installed │ Emulator Reverse Proxy                               │ emulator-reverse-proxy   │ 14.5 MiB │
+│ Not Installed │ Google Cloud Build Local Builder                     │ cloud-build-local        │  5.9 MiB │
+│ Not Installed │ Google Container Registry's Docker credential helper │ docker-credential-gcr    │  1.8 MiB │
+│ Not Installed │ Kind                                                 │ kind                     │  4.4 MiB │
+│ Not Installed │ Minikube                                             │ minikube                 │ 21.9 MiB │
+│ Not Installed │ Skaffold                                             │ skaffold                 │ 12.9 MiB │
+│ Not Installed │ anthos-auth                                          │ anthos-auth              │  8.6 MiB │
+│ Not Installed │ gcloud Alpha Commands                                │ alpha                    │  < 1 MiB │
+│ Not Installed │ gcloud Beta Commands                                 │ beta                     │  < 1 MiB │
+│ Not Installed │ gcloud app Java Extensions                           │ app-engine-java          │ 62.3 MiB │
+│ Not Installed │ gcloud app PHP Extensions                            │ app-engine-php           │ 21.9 MiB │
+│ Not Installed │ gcloud app Python Extensions                         │ app-engine-python        │  6.1 MiB │
+│ Not Installed │ gcloud app Python Extensions (Extra Libraries)       │ app-engine-python-extras │ 27.1 MiB │
+│ Not Installed │ kpt                                                  │ kpt                      │ 18.8 MiB │
+│ Not Installed │ kubectl                                              │ kubectl                  │  < 1 MiB │
+│ Installed     │ BigQuery Command Line Tool                           │ bq                       │  < 1 MiB │
+│ Installed     │ Cloud SDK Core Libraries                             │ core                     │ 14.1 MiB │
+│ Installed     │ Cloud Storage Command Line Tool                      │ gsutil                   │  3.6 MiB │
+└───────────────┴──────────────────────────────────────────────────────┴──────────────────────────┴──────────┘
+```
+
+Note: I am considering making this default config file location configurable via an evironment variable. I want to raise a discussion with the `asdf` core team about supporting a config dir first, perhaps `~/.config/asdf`
+
+# FAQ
+
+```
+~/.asdf/lib/commands/command-exec.bash: line 23: shim_args[@]: unbound variable
+```
+
+**This is expected** as `asdf-gcloud` sets the Bash option for `nounset` variables which makes running `gcloud` without commands an error. You should always pass a command to `gcloud`.
 
 # Contributing
 
