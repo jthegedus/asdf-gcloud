@@ -50,6 +50,8 @@ asdf global gcloud 286.0.0
 
 The asdf config file, `.tool-versions`, allows pinning each tool in your project to a specific version. This ensures that ALL developers are using the same version of each tool. Same `python`, same `gcloud`, same `terraform` etc.
 
+When you update a version in `.tool-versions`, `asdf` will prompt all users who do not have the correct versions to upgrade. This enables whole teams to update their tools in unison.
+
 # Default Cloud SDK Components
 
 `asdf-gcloud` can automatically install a set of Cloud SDK Components after each `asdf install gcloud <version>`. To enable this feature you must have a file that lists one COMPONENT_ID per line. For example:
