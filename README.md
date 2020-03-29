@@ -107,8 +107,6 @@ Below is the list of available components (as of version `286.0.0`):
 └───────────────┴──────────────────────────────────────────────────────┴──────────────────────────┴──────────┘
 ```
 
-Note: I am considering making this default config file location configurable via an evironment variable. I want to raise a discussion with the `asdf` core team about supporting a config dir first, perhaps `~/.config/asdf`
-
 # FAQ
 
 ```
