@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=../lib/utils.bash
+source "$(dirname "$0")/../lib/utils.bash"
+
+function default_cloud_sdk_components_config_path() {
+    local default_components_filename=".default-cloud-sdk-components"
+    local default_config_dir="$HOME/.config/gcloud"
+
+    local asdf_config_path="${ASDF_CONFIG_FILE:-"$HOME/.asdfrc"}"
+    local asdf_config_dir
+    asdf_config_dir=$(dirname "$asdf_config_path")
+
+    if [ -f "${default_config_dir}/${default_components_filename}" ]; then
+        echo "${default_config_dir}/${default_components_filename}"
+    elif [ -f "${asdf_config_dir}/${default_components_filename}" ]; then
+        echo "${asdf_config_dir}/${default_components_filename}"
+    else
+        echo "${HOME}/${default_components_filename}"
+    fi
+}
+
+function install_default_cloud_sdk_components() {
+    local default_cloud_sdk_components
+    default_cloud_sdk_components="$(default_cloud_sdk_components_config_path)"
+    local gcloud="${ASDF_INSTALL_PATH}/bin/gcloud"
+    declare -a component_list=()
+
+    if [ ! -f "$default_cloud_sdk_components" ]; then
+        return
+    fi
+
+    log_info "ℹ️  Installing SDK Components from ${default_cloud_sdk_components}"
+
+    while IFS="" read -r p || [ -n "${p}" ]; do
+        component_list+=("${p}")
+    done <"${default_cloud_sdk_components}"
+
+    $gcloud --quiet components install "${component_list[@]}"
+
+    log_success "Cloud SDK Components installed"
+}
+
+install_default_cloud_sdk_components

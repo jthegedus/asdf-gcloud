@@ -1,4 +1,5 @@
 bash
+basename
 curl
 dirname
 echo

@@ -38,9 +38,15 @@ install_gcloud() {
 }
 
 if [ "${ASDF_INSTALL_TYPE}" != "version" ]; then
-    log_failure_and_exit "Please provide the gcloud version number you wish to install."
+    log_failure_and_exit "Please provide the gcloud version number you wish to install. See \`asdf list all gcloud\`"
 fi
 
 check_dependencies "$(dirname "$0")/../lib/dependencies.txt" "failure"
 
 install_gcloud
+
+# post-install (install .default-cloud-sdk-components)
+bash "$(dirname "$0")/post-install"
+
+# reshim now sdk components are installed
+asdf reshim "$(get_plugin_name)" "$ASDF_INSTALL_VERSION"

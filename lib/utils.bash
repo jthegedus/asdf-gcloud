@@ -76,3 +76,7 @@ function get_os_name() {
     esac
     echo "${os_name}"
 }
+
+get_plugin_name() {
+    basename "$(dirname "$(dirname "$0")")"
+}
