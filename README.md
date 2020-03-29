@@ -37,13 +37,13 @@ asdf plugin add gcloud
 GCloud:
 
 ```shell
-asdf install gcloud 285.0.1
+asdf install gcloud 286.0.0
 ```
 
 Set global version:
 
 ```shell
-asdf global gcloud 285.0.1
+asdf global gcloud 286.0.0
 ```
 
 # Why?
