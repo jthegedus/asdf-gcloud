@@ -44,3 +44,6 @@ fi
 check_dependencies "$(dirname "$0")/../lib/dependencies.txt" "failure"
 
 install_gcloud
+
+# post-install (install .default-cloud-sdk-components)
+bash "$(dirname "$0")/post-install"

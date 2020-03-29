@@ -52,7 +52,7 @@ The asdf config file, `.tool-versions`, allows pinning each tool in your project
 
 # Default Cloud SDK Components
 
-`asdf-gcloud` can automatically install a set of Cloud SDK Components after each `asdf install gcloud <version>`. To enable this feature, provide a `${HOME}/.config/gcloud/.default-cloud-sdk-components` file that lists one COMPONENT_ID per line. For example:
+`asdf-gcloud` can automatically install a set of Cloud SDK Components after each `asdf install gcloud <version>`. To enable this feature you must have a file that lists one COMPONENT_ID per line. For example:
 
 ```
 alpha
@@ -60,6 +60,12 @@ beta
 cloud-build-local
 cloud-firestore-emulator
 ```
+
+This file must be named `.default-cloud-sdk-components` and be at one of the following locations:
+
+- `$HOME/.config/gcloud/.default-cloud-sdk-components`: next to gcloud auth configurations
+- `$(dirname ASDF_CONFIG_FILE)/.default-cloud-sdk-components`: relative to `.asdfrc` if configured
+- `$HOME/.default-cloud-sdk-components`: Home dir
 
 Below is the list of available components (as of version `286.0.0`):
 
