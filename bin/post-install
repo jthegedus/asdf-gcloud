@@ -25,13 +25,17 @@ function default_cloud_sdk_components_config_path() {
 function install_default_cloud_sdk_components() {
     local default_cloud_sdk_components
     default_cloud_sdk_components="$(default_cloud_sdk_components_config_path)"
+    local gcloud="${ASDF_INSTALL_PATH}/bin/gcloud"
 
     if [ ! -f "$default_cloud_sdk_components" ]; then
         return
     fi
 
+    log_info "ℹ️  Installing SDK Components from ${default_cloud_sdk_components}"
+
     while IFS="" read -r p || [ -n "${p}" ]; do
-        gcloud components install "${p}"
+        log_info "ℹ️  Installing ${p} SDK Component"
+        $gcloud --quiet components install "${p}"
     done <"${default_cloud_sdk_components}"
     log_success "Cloud SDK Components installed"
 }
