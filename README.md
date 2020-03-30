@@ -46,11 +46,13 @@ Set global version:
 asdf global gcloud ${$(asdf where gcloud)##*/}
 ```
 
-or if ![GitHub issue/pull request detail](https://img.shields.io/github/pulls/detail/state/asdf-vm/asdf/633) is merged:
+or if [![GitHub issue/pull request detail](https://img.shields.io/github/pulls/detail/state/asdf-vm/asdf/633)](https://github.com/asdf-vm/asdf/pull/633) is merged:
 
 ```shell
 asdf global gcloud latest
 ```
+
+These commands also apply to `asdf local gcloud <version>`.
 
 # Why?
 
