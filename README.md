@@ -46,7 +46,7 @@ Set global version:
 asdf global gcloud 286.0.0
 ```
 
-or if [![GitHub issue/pull request detail](https://img.shields.io/github/pulls/detail/state/asdf-vm/asdf/633)](https://github.com/asdf-vm/asdf/pull/633) is merged:
+or if [![https://github.com/asdf-vm/asdf/pull/633](https://img.shields.io/github/pulls/detail/state/asdf-vm/asdf/633)](https://github.com/asdf-vm/asdf/pull/633) is merged:
 
 ```shell
 asdf global gcloud latest
