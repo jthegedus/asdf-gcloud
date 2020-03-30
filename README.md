@@ -37,13 +37,19 @@ asdf plugin add gcloud
 GCloud:
 
 ```shell
-asdf install gcloud 286.0.0
+asdf install gcloud latest
 ```
 
 Set global version:
 
 ```shell
-asdf global gcloud 286.0.0
+asdf global gcloud ${$(asdf where gcloud)##*/}
+```
+
+or if ![GitHub issue/pull request detail](https://img.shields.io/github/pulls/detail/state/asdf-vm/asdf/633) is merged:
+
+```shell
+asdf global gcloud latest
 ```
 
 # Why?
