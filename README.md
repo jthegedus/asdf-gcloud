@@ -40,7 +40,7 @@ GCloud:
 asdf install gcloud latest
 ```
 
-Set global version:
+Set global version to newly installed version:
 
 ```shell
 asdf global gcloud ${$(asdf where gcloud)##*/}
@@ -50,6 +50,12 @@ or if [![GitHub issue/pull request detail](https://img.shields.io/github/pulls/d
 
 ```shell
 asdf global gcloud latest
+```
+
+or set a specific version
+
+```shell
+asdf global gcloud 286.0.0
 ```
 
 These commands also apply to `asdf local gcloud <version>`.
