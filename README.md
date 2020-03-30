@@ -121,7 +121,7 @@ Below is the list of available components (as of version `286.0.0`):
 ~/.asdf/lib/commands/command-exec.bash: line 23: shim_args[@]: unbound variable
 ```
 
-**This is expected** as `asdf-gcloud` sets the Bash option for `nounset` variables which makes running `gcloud` without commands an error. You should always pass a command to `gcloud`.
+**This is expected** as `gcloud` requires a command. `asdf-gcloud` sets the Bash option for `nounset` variables which makes running `gcloud` without commands appear as an `asdf` error. You should always pass a command to `gcloud`.
 
 # Contributing
 
