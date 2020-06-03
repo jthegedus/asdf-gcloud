@@ -25,3 +25,13 @@ jobs:
           shellcheck --version
       - name: Shellcheck
         run: shellcheck -x bin/* -P lib/
+  shfmt:
+    name: shfmt
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Shell Format
+        run: brew install shfmt
+      - name: Check Format
+        run: shfmt -d -f .
