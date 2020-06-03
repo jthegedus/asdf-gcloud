@@ -33,5 +33,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Install Shell Format
         run: brew install shfmt
+      - name: List files to check
+        run: shfmt -f .
       - name: Check Format
-        run: shfmt -d -f .
+        run: shfmt -d .
