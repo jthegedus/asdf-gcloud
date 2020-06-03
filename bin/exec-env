@@ -6,12 +6,12 @@ set -euo pipefail
 source "$(dirname "$0")/../lib/utils.bash"
 
 if [[ ! -x "$(command -v python)" ]]; then
-    log_failure_and_exit "Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python"
+	log_failure_and_exit "Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python"
 fi
 
 # credit: https://unix.stackexchange.com/a/56846/397902
 if [ -z "${CLOUDSDK_PYTHON:+1}" ]; then
-    # undefined or defined and empty
-    python_sdk="$(command -v python)"
-    export CLOUDSDK_PYTHON=${python_sdk}
+	# undefined or defined and empty
+	python_sdk="$(command -v python)"
+	export CLOUDSDK_PYTHON=${python_sdk}
 fi

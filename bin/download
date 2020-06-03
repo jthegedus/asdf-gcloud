@@ -8,22 +8,22 @@ source "$(dirname "$0")/../lib/helpers.bash"
 source "$(dirname "$0")/../lib/utils.bash"
 
 download() {
-    local gcs_bucket_name="cloud-sdk-release"
-    local gcs_object
-    local status_code
-    gcs_object="$(construct_gcs_object "${ASDF_INSTALL_VERSION}" "$(get_os_name)" "$(get_os_architecture)")"
+	local gcs_bucket_name="cloud-sdk-release"
+	local gcs_object
+	local status_code
+	gcs_object="$(construct_gcs_object "${ASDF_INSTALL_VERSION}" "$(get_os_name)" "$(get_os_architecture)")"
 
-    log_info "⏬  downloading ${gcs_object}"
-    status_code=$(curl -X GET \
-        --write-out "%{http_code}" \
-        --progress-bar \
-        -Lo "${ASDF_DOWNLOAD_PATH}/${gcs_object}" \
-        "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media")
+	log_info "⏬  downloading ${gcs_object}"
+	status_code=$(curl -X GET \
+		--write-out "%{http_code}" \
+		--progress-bar \
+		-Lo "${ASDF_DOWNLOAD_PATH}/${gcs_object}" \
+		"https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o/${gcs_object}?alt=media")
 
-    if [[ ${status_code} -eq 404 ]]; then
-        log_failure_and_exit "gcloud not found for version ${ASDF_INSTALL_VERSION}. Full version required, not just major version numbers."
-    fi
-    log_success "downloaded!"
+	if [[ ${status_code} -eq 404 ]]; then
+		log_failure_and_exit "gcloud not found for version ${ASDF_INSTALL_VERSION}. Full version required, not just major version numbers."
+	fi
+	log_success "downloaded!"
 }
 
 download
