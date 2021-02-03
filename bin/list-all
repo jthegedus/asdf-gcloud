@@ -22,9 +22,11 @@ function list_all() {
 			more=false
 		fi
 		additions=$(echo "${res}" | grep -Eo "name.*google-cloud-sdk-[0-9]+\.[0-9]+\.[0-9]+-(linux)-x86_64" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+")
-		list="${list}${additions}"
+		if [[ -n "${additions}" ]]; then
+			list="${list}\n${additions}"
+		fi
 	done
-	echo "${list}"
+	echo -e "${list}"
 }
 
 list_all | sort -V | tr '\n' ' '
