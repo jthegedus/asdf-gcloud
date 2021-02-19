@@ -2,8 +2,11 @@
 
 set -euo pipefail
 
+current_script_path="${BASH_SOURCE[0]}"
+gcloud_plugin_dir="$(dirname "$(dirname "$current_script_path")")"
+
 # shellcheck source=../lib/utils.bash
-source "$(dirname "$0")/../lib/utils.bash"
+source "${gcloud_plugin_dir}/lib/utils.bash"
 
 if [[ ! -x "$(command -v python)" ]]; then
 	log_failure_and_exit "Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python"
