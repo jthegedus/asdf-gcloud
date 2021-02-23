@@ -44,3 +44,7 @@ function install_default_cloud_sdk_components() {
 }
 
 install_default_cloud_sdk_components
+
+
+# symlink the completions file?
+# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/gcloud/gcloud.plugin.zsh
