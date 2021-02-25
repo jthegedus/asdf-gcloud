@@ -1,0 +1,24 @@
+{
+	"name": "dotfiles",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jthegedus/dotfiles.git"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/jthegedus/dotfiles#readme",
+	"bugs": {
+		"url": "https://github.com/jthegedus/dotfiles/issues"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^12.0.0",
+		"@commitlint/config-conventional": "^12.0.0",
+		"husky": "^5.1.1"
+	},
+	"scripts": {
+		"prepare": "husky install"
+	},
+	"prettier": {
+		"useTabs": true
+	}
+}

@@ -1,5 +1,11 @@
 # Contributing
 
+## Setup
+
+1. `git clone https://github.com/jthegedus/asdf-gcloud.git`
+2. `asdf install`
+3. `npm i`
+
 ## Structure
 
 - `bin/*`: asdf plugin functions
