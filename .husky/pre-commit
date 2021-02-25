@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+MARKDOWN_JS_FILES=$(git diff --cached --name-only --diff-filter=ACMR "*.md" "*.js" "*.json" | sed 's| |\\ |g')
+
+if [ -n "$MARKDOWN_JS_FILES" ]; then
+	# Prettify all selected files, stage modified
+	echo "$MARKDOWN_JS_FILES" | xargs ./node_modules/.bin/prettier --write
+	echo "$MARKDOWN_JS_FILES" | xargs git add
+fi
+
+# Shfmt changed files, stage modified
+shfmt -w bin/ lib/
+git add .
+
+exit 0
