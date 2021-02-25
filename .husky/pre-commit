@@ -11,6 +11,6 @@ fi
 
 # Shfmt changed files, stage modified
 shfmt -w bin/ lib/
-git add
+git add .
 
 exit 0
