@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 jobs:
   code_lint:
-    name: "Shellcheck and Shell Format"
+    name: Shellcheck and Shell Format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,7 +14,7 @@ jobs:
           before_install: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
       - name: Shellcheck
         run: shellcheck -x bin/* -P lib/
-      - name: "Shell Format - List files to check"
+      - name: Shell Format - List files to check
         run: shfmt -f .
-      - name: "Shell Format - Validate"
+      - name: Shell Format - Validate
         run: shfmt -d .
