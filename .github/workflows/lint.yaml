@@ -2,7 +2,7 @@ name: Lint
 on: [push, pull_request]
 
 jobs:
-  lint:
+  code_lint:
     name: Shellcheck & Shell Format
     runs-on: ubuntu-latest
     steps:
