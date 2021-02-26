@@ -2,6 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 
 MARKDOWN_JS_FILES=$(git diff --cached --name-only --diff-filter=ACMR "*.md" "*.js" "*.json" | sed 's| |\\ |g')
+SHELL_FILES=$(git diff --cached --name-only --diff-filter=ACMR -- bin/ lib/ | sed 's| |\\ |g')
 
 if [ -n "$MARKDOWN_JS_FILES" ]; then
 	# Prettify all selected files, stage modified
@@ -10,7 +11,10 @@ if [ -n "$MARKDOWN_JS_FILES" ]; then
 fi
 
 # Shfmt changed files, stage modified
-shfmt -w bin/ lib/
-git add .
+if [ -n "$SHELL_FILES" ]; then
+	# Shfmt changed files, stage modified
+	echo "$SHELL_FILES" | xargs shfmt -w
+	echo "$SHELL_FILES" | xargs git add
+fi
 
 exit 0
