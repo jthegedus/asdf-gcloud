@@ -8,6 +8,8 @@
 
 [GCloud CLI](https://cloud.google.com/sdk/gcloud/reference) plugin for [asdf version manager](https://asdf-vm.com) allowing you to pin `gcloud` versions for each GCP project.
 
+![asdf-gcloud](./assets/asdf-gcloud.webp)
+
 </div>
 
 # Contents
@@ -29,7 +31,7 @@ Plugin:
 
 ```shell
 # prefer the git url method
-asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud.git
+asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud
 # or
 asdf plugin add gcloud
 ```
