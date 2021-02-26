@@ -14,7 +14,7 @@ fi
 if [ -n "$SHELL_FILES" ]; then
 	# Shfmt changed files, stage modified
 	echo "$SHELL_FILES" | xargs shfmt -w
-	echo "$SHELL_FILES" | xargs git add .
+	echo "$SHELL_FILES" | xargs git add
 fi
 
 exit 0
