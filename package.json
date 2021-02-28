@@ -3,12 +3,12 @@
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jthegedus/dotfiles.git"
+		"url": "git+https://github.com/jthegedus/asdf-gcloud.git"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/jthegedus/dotfiles#readme",
+	"homepage": "https://github.com/jthegedus/asdf-gcloud#readme",
 	"bugs": {
-		"url": "https://github.com/jthegedus/dotfiles/issues"
+		"url": "https://github.com/jthegedus/asdf-gcloud/issues"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^12.0.0",
