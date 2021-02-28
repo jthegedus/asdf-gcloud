@@ -3,10 +3,12 @@
 # asdf-gcloud ![Build](https://github.com/jthegedus/asdf-gcloud/workflows/Build/badge.svg) ![Lint](https://github.com/jthegedus/asdf-gcloud/workflows/Lint/badge.svg)
 
 <a href="https://cloud.google.com/sdk/gcloud/reference" target="_blank" rel="noopener noreferrer">
-  <img src="images/logo_lockup_cloud_rgb.png" height="42" align="middle" />
+  <img src="assets/logo_lockup_cloud_rgb.png" height="42" align="middle" />
 </a>
 
 [GCloud CLI](https://cloud.google.com/sdk/gcloud/reference) plugin for [asdf version manager](https://asdf-vm.com) allowing you to pin `gcloud` versions for each GCP project.
+
+![asdf-gcloud](./assets/asdf-gcloud.png)
 
 </div>
 
@@ -29,7 +31,7 @@ Plugin:
 
 ```shell
 # prefer the git url method
-asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud.git
+asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud
 # or
 asdf plugin add gcloud
 ```
@@ -128,6 +130,10 @@ Below is the list of available components (as of version `286.0.0`):
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/jthegedus/asdf-gcloud/graphs/contributors)!
+
+## Why are there Node deps here?
+
+I decided the value of [commitlint](https://commitlint.js.org/#/) & sharing Git Hooks with [husky](https://typicode.github.io/husky/#/) were greater than the cost of including these deps. Not only this, but dogfooding `asdf` for dev deps makes this less of an issue.
 
 # License
 
