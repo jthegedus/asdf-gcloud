@@ -1,8 +1,8 @@
+name: Release-Please
 on:
   push:
     branches:
       - main
-name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -10,4 +10,3 @@ jobs:
       - uses: GoogleCloudPlatform/release-please-action@v2
         with:
           release-type: simple
-          package-name: asdf-gcloud
