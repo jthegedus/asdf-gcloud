@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.0.0...v1.0.1) (2021-05-31)
+
+
+### Bug Fixes
+
+* no package name in PR title ([#43](https://www.github.com/jthegedus/asdf-gcloud/issues/43)) ([b950beb](https://www.github.com/jthegedus/asdf-gcloud/commit/b950beb4e3b1891e6519ae41c884301543635b40))
+
 ## 1.0.0 (2021-05-31)
 
 
