@@ -124,7 +124,7 @@ Below is the list of available components (as of version `286.0.0`):
 
 # Contributing
 
-Contributions of any kind welcome! See the [contributing guide](contributing.md).
+Contributions of any kind welcome! See the [contributing guide](CONTRIBUTING.md).
 
 [Thanks goes to these contributors](https://github.com/jthegedus/asdf-gcloud/graphs/contributors)!
 
