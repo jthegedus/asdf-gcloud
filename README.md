@@ -32,8 +32,6 @@ Plugin:
 ```shell
 # prefer the git url method
 asdf plugin add gcloud https://github.com/jthegedus/asdf-gcloud
-# or
-asdf plugin add gcloud
 ```
 
 GCloud:
