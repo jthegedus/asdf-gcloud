@@ -1,15 +1,15 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@commitlint/cli': ^12.0.0
-  '@commitlint/config-conventional': ^12.0.0
-  husky: ^5.1.1
-  prettier: ^2.2.1
+  '@commitlint/cli': ^12.1.4
+  '@commitlint/config-conventional': ^12.1.4
+  husky: ^6.0.0
+  prettier: ^2.3.0
 
 devDependencies:
   '@commitlint/cli': 12.1.4
   '@commitlint/config-conventional': 12.1.4
-  husky: 5.2.0
+  husky: 6.0.0
   prettier: 2.3.0
 
 packages:
@@ -473,9 +473,8 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /husky/5.2.0:
-    resolution: {integrity: sha512-AM8T/auHXRBxlrfPVLKP6jt49GCM2Zz47m8G3FOMsLmTv8Dj/fKVWE0Rh2d4Qrvmy131xEsdQnb3OXRib67PGg==}
-    engines: {node: '>= 10'}
+  /husky/6.0.0:
+    resolution: {integrity: sha512-SQS2gDTB7tBN486QSoKPKQItZw97BMOd+Kdb6ghfpBc0yXyzrddI0oDV5MkDAbuB4X2mO3/nj60TRMcYxwzZeQ==}
     hasBin: true
     dev: true
 
