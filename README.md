@@ -76,7 +76,7 @@ This file must be named `.default-cloud-sdk-components` and be at one of the fol
 - `$(dirname ASDF_CONFIG_FILE)/.default-cloud-sdk-components`: relative to `.asdfrc` if configured
 - `$HOME/.default-cloud-sdk-components`: Home dir
 
-Below is the list of available components (as of version `286.0.0`):
+Below is the list of available components (as of version `342.0.0`):
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -84,33 +84,38 @@ Below is the list of available components (as of version `286.0.0`):
 ├───────────────┬──────────────────────────────────────────────────────┬──────────────────────────┬──────────┤
 │     Status    │                         Name                         │            ID            │   Size   │
 ├───────────────┼──────────────────────────────────────────────────────┼──────────────────────────┼──────────┤
-│ Not Installed │ App Engine Go Extensions                             │ app-engine-go            │  4.8 MiB │
-│ Not Installed │ Appctl                                               │ appctl                   │ 17.5 MiB │
-│ Not Installed │ Cloud Bigtable Command Line Tool                     │ cbt                      │  7.6 MiB │
+│ Not Installed │ App Engine Go Extensions                             │ app-engine-go            │  4.9 MiB │
+│ Not Installed │ Appctl                                               │ appctl                   │ 21.0 MiB │
+│ Not Installed │ Cloud Bigtable Command Line Tool                     │ cbt                      │  7.7 MiB │
 │ Not Installed │ Cloud Bigtable Emulator                              │ bigtable                 │  6.6 MiB │
 │ Not Installed │ Cloud Datalab Command Line Tool                      │ datalab                  │  < 1 MiB │
 │ Not Installed │ Cloud Datastore Emulator                             │ cloud-datastore-emulator │ 18.4 MiB │
-│ Not Installed │ Cloud Firestore Emulator                             │ cloud-firestore-emulator │ 40.3 MiB │
-│ Not Installed │ Cloud Pub/Sub Emulator                               │ pubsub-emulator          │ 34.9 MiB │
-│ Not Installed │ Cloud SQL Proxy                                      │ cloud_sql_proxy          │  3.7 MiB │
+│ Not Installed │ Cloud Firestore Emulator                             │ cloud-firestore-emulator │ 40.5 MiB │
+│ Not Installed │ Cloud Pub/Sub Emulator                               │ pubsub-emulator          │ 60.4 MiB │
+│ Not Installed │ Cloud SQL Proxy                                      │ cloud_sql_proxy          │  7.6 MiB │
+│ Not Installed │ Cloud Spanner Emulator                               │ cloud-spanner-emulator   │ 21.8 MiB │
 │ Not Installed │ Emulator Reverse Proxy                               │ emulator-reverse-proxy   │ 14.5 MiB │
-│ Not Installed │ Google Cloud Build Local Builder                     │ cloud-build-local        │  5.9 MiB │
+│ Not Installed │ Google Cloud Build Local Builder                     │ cloud-build-local        │  6.3 MiB │
 │ Not Installed │ Google Container Registry's Docker credential helper │ docker-credential-gcr    │  1.8 MiB │
-│ Not Installed │ Kind                                                 │ kind                     │  4.4 MiB │
-│ Not Installed │ Minikube                                             │ minikube                 │ 21.9 MiB │
-│ Not Installed │ Skaffold                                             │ skaffold                 │ 12.9 MiB │
-│ Not Installed │ anthos-auth                                          │ anthos-auth              │  8.6 MiB │
+│ Not Installed │ Kustomize                                            │ kustomize                │ 25.9 MiB │
+│ Not Installed │ Minikube                                             │ minikube                 │ 50.4 MiB │
+│ Not Installed │ Nomos CLI                                            │ nomos                    │ 22.9 MiB │
+│ Not Installed │ On-Demand Scanning API extraction helper             │ local-extract            │ 13.6 MiB │
+│ Not Installed │ Skaffold                                             │ skaffold                 │ 16.8 MiB │
+│ Not Installed │ anthos-auth                                          │ anthos-auth              │ 16.8 MiB │
+│ Not Installed │ config-connector                                     │ config-connector         │ 44.6 MiB │
 │ Not Installed │ gcloud Alpha Commands                                │ alpha                    │  < 1 MiB │
 │ Not Installed │ gcloud Beta Commands                                 │ beta                     │  < 1 MiB │
-│ Not Installed │ gcloud app Java Extensions                           │ app-engine-java          │ 62.3 MiB │
-│ Not Installed │ gcloud app PHP Extensions                            │ app-engine-php           │ 21.9 MiB │
+│ Not Installed │ gcloud app Java Extensions                           │ app-engine-java          │ 52.4 MiB │
 │ Not Installed │ gcloud app Python Extensions                         │ app-engine-python        │  6.1 MiB │
 │ Not Installed │ gcloud app Python Extensions (Extra Libraries)       │ app-engine-python-extras │ 27.1 MiB │
-│ Not Installed │ kpt                                                  │ kpt                      │ 18.8 MiB │
+│ Not Installed │ kpt                                                  │ kpt                      │ 11.7 MiB │
 │ Not Installed │ kubectl                                              │ kubectl                  │  < 1 MiB │
+│ Not Installed │ kubectl-oidc                                         │ kubectl-oidc             │ 16.8 MiB │
+│ Not Installed │ pkg                                                  │ pkg                      │          │
 │ Installed     │ BigQuery Command Line Tool                           │ bq                       │  < 1 MiB │
-│ Installed     │ Cloud SDK Core Libraries                             │ core                     │ 14.1 MiB │
-│ Installed     │ Cloud Storage Command Line Tool                      │ gsutil                   │  3.6 MiB │
+│ Installed     │ Cloud SDK Core Libraries                             │ core                     │ 18.6 MiB │
+│ Installed     │ Cloud Storage Command Line Tool                      │ gsutil                   │  3.9 MiB │
 └───────────────┴──────────────────────────────────────────────────────┴──────────────────────────┴──────────┘
 ```
 
