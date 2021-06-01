@@ -29,4 +29,4 @@ function list_all() {
 	echo -e "${list}"
 }
 
-list_all | sort -V | tr '\n' ' '
+list_all | sort_versions | tr '\n' ' '
