@@ -35,4 +35,4 @@ function list_all() {
 	echo -e "${list}"
 }
 
-list_all | sort_versions | tr '\n' ' '
+list_all | sort_versions | xargs echo
