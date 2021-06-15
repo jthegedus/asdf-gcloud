@@ -1,4 +1,4 @@
-nodejs 16.2.0
+nodejs 16.3.0
 shellcheck 0.7.2
 shfmt 3.3.0
-pnpm 6.6.2
+pnpm 6.7.6
