@@ -4,11 +4,6 @@ on:
     branches:
       - main
   pull_request:
-  workflow_run:
-    workflows:
-      - Release-Please
-    types:
-      - completed
 
 jobs:
   plugin_test:
