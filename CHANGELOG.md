@@ -1,5 +1,15 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.0.1...v1.0.2) (2021-06-15)
+
+
+### Bug Fixes
+
+* bump tool versions ([d50910b](https://www.github.com/jthegedus/asdf-gcloud/commit/d50910bd27ec2fe87733da88854cd6475d5b0668))
+* release please uses PAT ([bf88bab](https://www.github.com/jthegedus/asdf-gcloud/commit/bf88bab4d3b197870d76f4c714fdf6fe25aa9716))
+* rm release-please workflow trigger from build ([38ab6f1](https://www.github.com/jthegedus/asdf-gcloud/commit/38ab6f1087bec950acdcb62ff51a3c9c9de8fb87))
+* use custom sort func for portability ([#46](https://www.github.com/jthegedus/asdf-gcloud/issues/46)) ([6002e50](https://www.github.com/jthegedus/asdf-gcloud/commit/6002e50404671ac1617d4ca4326be729152202d0))
+
 ### [1.0.1](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.0.0...v1.0.1) (2021-05-31)
 
 
