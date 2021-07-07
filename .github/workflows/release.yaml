@@ -1,8 +1,10 @@
-name: Release-Please
+name: Release
+
 on:
   push:
     branches:
       - main
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -10,4 +12,3 @@ jobs:
       - uses: GoogleCloudPlatform/release-please-action@v2
         with:
           release-type: simple
-          token: ${{ secrets.RELEASE_PLEASE_PAT }}
