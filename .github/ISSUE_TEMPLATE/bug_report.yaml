@@ -3,56 +3,55 @@ description: Create a report to help us improve
 title: "bug: "
 labels: [bug]
 body:
-- type: markdown
-  attributes:
-    value: |
-      Thanks for taking the time to fill out this bug report!
-- type: textarea
-  id: description
-  attributes:
-    label: Describe the bug
-    description: Also tell us, what did you expect to happen?
-    placeholder: Tell us what you see!
-  validations:
-    required: true
-- type: textarea
-  id: reproduction
-  attributes:
-    label: Steps to reproduce
-    description: Steps to reproduce the bug you experienced
-    placeholder: 1. asdf gcloud --version
-  validations:
-    required: true
-- type: input
-  id: asdf-version
-  attributes:
-    label: asdf version
-    description: What version of `asdf` are you running? Run `asdf --version`
-    placeholder: 0.8.1
-  validations:
-    required: true
-- type: input
-  id: asdf-gcloud-version
-  attributes:
-    label: asdf-gcloud version
-    description: What version of `asdf-gcloud` are you running?
-    placeholder: 1.0.0
-  validations:
-    required: true
-- type: input
-  id: gcloud-version
-  attributes:
-    label: gcloud version
-    description: What version of `gcloud` are you running?
-    placeholder: 348.0.0
-  validations:
-    required: true
-- type: textarea
-  id: additional-information
-  attributes:
-    label: Additional Information
-    description: Is there more information you would like to share?
-
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the bug you experienced
+      placeholder: 1. asdf gcloud --version
+    validations:
+      required: true
+  - type: input
+    id: asdf-version
+    attributes:
+      label: asdf version
+      description: What version of `asdf` are you running? Run `asdf --version`
+      placeholder: 0.8.1
+    validations:
+      required: true
+  - type: input
+    id: asdf-gcloud-version
+    attributes:
+      label: asdf-gcloud version
+      description: What version of `asdf-gcloud` are you running?
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: gcloud-version
+    attributes:
+      label: gcloud version
+      description: What version of `gcloud` are you running?
+      placeholder: 348.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: Additional Information
+      description: Is there more information you would like to share?
 # - type: checkboxes
 #   id: terms
 #   attributes:
