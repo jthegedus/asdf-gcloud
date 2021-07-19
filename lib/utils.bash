@@ -52,7 +52,7 @@ function check_dependencies() {
 }
 
 function get_os_architecture() {
-	local arch=""
+	local architecture
 
   case "$(uname -m)" in
   x86_64 | amd64) architecture="x86_64" ;;
