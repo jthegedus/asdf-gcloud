@@ -52,13 +52,18 @@ function check_dependencies() {
 }
 
 function get_os_architecture() {
-	local architecture
-	if [[ $(getconf LONG_BIT) == "64" ]]; then
-		architecture="x86_64"
-	else
-		architecture="x86"
-	fi
-	echo "${architecture}"
+	local arch=""
+
+  case "$(uname -m)" in
+  x86_64 | amd64) architecture="x86_64" ;;
+  i686 | i386) architecture="x86" ;;
+  aarch64 | arm64) architecture="arm" ;;
+  *)
+    fail "Arch '$(uname -m)' not supported!"
+    ;;
+  esac
+
+  echo -n $architecture
 }
 
 function get_os_name() {
