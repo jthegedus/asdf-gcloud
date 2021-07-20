@@ -1,4 +1,5 @@
 name: Lint
+
 on:
   push:
     branches:
@@ -11,23 +12,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: asdf_install
-        uses: asdf-vm/actions/install@v1
-        with:
-          before_install: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-      - name: Shellcheck
-        run: shellcheck -x bin/* -P lib/
 
-  shfmt:
+      - name: Install asdf dependencies
+        uses: asdf-vm/actions/install@v1
+
+      - name: Run ShellCheck
+        run: scripts/shellcheck.bash
+
+  shellfmt:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: asdf_install
+
+      - name: Install asdf dependencies
         uses: asdf-vm/actions/install@v1
-        with:
-          before_install: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-      - name: Shell Format - List files to check
-        run: shfmt -f .
-      - name: Shell Format - Validate
-        run: shfmt -d .
+
+      - name: Run shfmt
+        run: scripts/shfmt.bash
