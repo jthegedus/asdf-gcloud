@@ -66,20 +66,25 @@ function get_os_architecture() {
   echo -n $architecture
 }
 
-function get_os_name() {
-	local os_name
-	case $(uname -s) in
-	Linux*)
-		os_name="linux"
+function get_os_architecture() {
+	local architecture
+
+	case "$(uname -m)" in
+	x86_64 | amd64)
+		architecture="x86_64"
 		;;
-	Darwin*)
-		os_name="darwin"
+	i686 | i386)
+		architecture="x86"
+		;;
+	aarch64 | arm64)
+		architecture="arm"
 		;;
 	*)
-		log_failure_and_exit "Script only supports macOS and Ubuntu"
+		log_failure_and_exit "Architecture $(uname -m) not supported!"
 		;;
 	esac
-	echo "${os_name}"
+
+	echo "${architecture}"
 }
 
 get_plugin_name() {
