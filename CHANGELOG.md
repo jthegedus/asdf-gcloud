@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.0.2...v1.1.0) (2021-07-20)
+
+
+### Features
+
+* support arm builds ([#49](https://www.github.com/jthegedus/asdf-gcloud/issues/49)) ([ed7631b](https://www.github.com/jthegedus/asdf-gcloud/commit/ed7631b5cd38ba5c65691843c28f4c90f5edaff4))
+
 ### [1.0.2](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.0.1...v1.0.2) (2021-06-15)
 
 
