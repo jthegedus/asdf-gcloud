@@ -54,21 +54,6 @@ function check_dependencies() {
 function get_os_architecture() {
 	local architecture
 
-  case "$(uname -m)" in
-  x86_64 | amd64) architecture="x86_64" ;;
-  i686 | i386) architecture="x86" ;;
-  aarch64 | arm64) architecture="arm" ;;
-  *)
-    fail "Arch '$(uname -m)' not supported!"
-    ;;
-  esac
-
-  echo -n $architecture
-}
-
-function get_os_architecture() {
-	local architecture
-
 	case "$(uname -m)" in
 	x86_64 | amd64)
 		architecture="x86_64"
@@ -87,7 +72,23 @@ function get_os_architecture() {
 	echo "${architecture}"
 }
 
-get_plugin_name() {
+function get_os_name() {
+	local os_name
+	case $(uname -s) in
+	Linux*)
+		os_name="linux"
+		;;
+	Darwin*)
+		os_name="darwin"
+		;;
+	*)
+		log_failure_and_exit "Script only supports macOS and Ubuntu"
+		;;
+	esac
+	echo "${os_name}"
+}
+
+function get_plugin_name() {
 	basename "$(dirname "$(dirname "$0")")"
 }
 
