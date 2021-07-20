@@ -53,11 +53,22 @@ function check_dependencies() {
 
 function get_os_architecture() {
 	local architecture
-	if [[ $(getconf LONG_BIT) == "64" ]]; then
+
+	case "$(uname -m)" in
+	x86_64 | amd64)
 		architecture="x86_64"
-	else
+		;;
+	i686 | i386)
 		architecture="x86"
-	fi
+		;;
+	aarch64 | arm64)
+		architecture="arm"
+		;;
+	*)
+		log_failure_and_exit "Architecture $(uname -m) not supported!"
+		;;
+	esac
+
 	echo "${architecture}"
 }
 
@@ -77,7 +88,7 @@ function get_os_name() {
 	echo "${os_name}"
 }
 
-get_plugin_name() {
+function get_plugin_name() {
 	basename "$(dirname "$(dirname "$0")")"
 }
 
