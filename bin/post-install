@@ -10,7 +10,7 @@ source "${plugin_dir}/lib/utils.bash"
 
 function default_cloud_sdk_components_config_path() {
 	local default_components_filename=".default-cloud-sdk-components"
-	local default_config_dir="$HOME/.config/gcloud"
+	local default_config_dir="$(default_cloud_sdk_config)"
 
 	local asdf_config_path="${ASDF_CONFIG_FILE:-"$HOME/.asdfrc"}"
 	local asdf_config_dir
@@ -30,6 +30,8 @@ function install_default_cloud_sdk_components() {
 	default_cloud_sdk_components="$(default_cloud_sdk_components_config_path)"
 	local gcloud="${ASDF_INSTALL_PATH}/bin/gcloud"
 	declare -a component_list=()
+
+	log_info "ℹ️  Check by Default SDK Components at ${default_cloud_sdk_components}"
 
 	if [ ! -f "$default_cloud_sdk_components" ]; then
 		return
