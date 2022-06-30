@@ -73,7 +73,7 @@ function get_os_architecture() {
 		;;
 	esac
 
-	echo "${architecture}"
+	printf "%s\\n" "${architecture}"
 }
 
 function get_os_name() {
