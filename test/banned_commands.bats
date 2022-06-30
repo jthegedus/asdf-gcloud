@@ -58,10 +58,10 @@ banned_commands_regex=(
 	# followed by an underscore (indicating it's a variable and not a
 	# command).
 	for cmd in "${banned_commands[@]}"; do
-		run bash -c "grep -nHR --include \*.bash --include \*.sh '$cmd' lib bin\
-		| grep -v '#.*$cmd'\
+		run bash -c "grep -nHR --include \*.bash --include \*.sh '$cmd' lib bin \
+		| grep -v '#.*$cmd' \
 		| grep -v '\".*$cmd.*\"' \
-		| grep -v '${cmd}_'\
+		| grep -v '${cmd}_' \
 		| grep -v '# asdf_allow: $cmd'"
 
 		# Only print output if we've found a banned command
@@ -75,10 +75,10 @@ banned_commands_regex=(
 	done
 
 	for cmd in "${banned_commands_regex[@]}"; do
-		run bash -c "grep -nHRE --include \*.bash --include \*.sh '$cmd' lib bin\
-		| grep -v '#.*$cmd'\
+		run bash -c "grep -nHRE --include \*.bash --include \*.sh '$cmd' lib bin \
+		| grep -v '#.*$cmd' \
 		| grep -v '\".*$cmd.*\"' \
-		| grep -v '${cmd}_'\
+		| grep -v '${cmd}_' \
 		| grep -v '# asdf_allow: $cmd'"
 
 		# Only print output if we've found a banned command
