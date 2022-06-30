@@ -26,7 +26,7 @@ function log_warning() {
 # END Logging
 
 function default_cloud_sdk_config() {
-	echo "${CLOUDSDK_CONFIG:-"$HOME/.config/gcloud"}"
+	printf "%s\\n" "${CLOUDSDK_CONFIG:-"$HOME/.config/gcloud"}"
 }
 
 function check_dependencies() {
