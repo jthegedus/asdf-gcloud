@@ -1,16 +1,14 @@
 name: Format
 
 on:
-  # trigger format on every push to main branch if files changed
-  push:
-    branches:
-      - main
-  # trigger deployment manually
+  # trigger on PR
+  pull_request:
+  # trigger manually
   workflow_dispatch:
 
 jobs:
   # JOB to run change detection
-  changes:
+  detect_file_changes:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
@@ -43,7 +41,7 @@ jobs:
 
   bash:
     needs: changes
-    if: ${{ needs.changes.outputs.markdown == 'true' }}
+    if: ${{ needs.changes.outputs.bash == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
