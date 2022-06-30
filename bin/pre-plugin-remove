@@ -10,4 +10,4 @@ source "${plugin_dir}/lib/utils.bash"
 
 # Google Cloud SDK uninstall instructions - https://cloud.google.com/sdk/docs/uninstall-cloud-sdk
 
-log_info "ℹ️  Your gcloud project configuration(s) persist in you gcloud configuration directory. Usually ${HOME}/.config/gcloud"
+log_info "ℹ️  Your gcloud project configuration(s) persist in you gcloud configuration directory at \"$(default_cloud_sdk_config)\""

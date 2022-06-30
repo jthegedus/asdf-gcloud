@@ -66,9 +66,12 @@ cloud-firestore-emulator
 
 This file must be named `.default-cloud-sdk-components` and be at one of the following locations:
 
+- `$CLOUDSDK_CONFIG/.default-cloud-sdk-components`: next to gcloud auth configurations
 - `$HOME/.config/gcloud/.default-cloud-sdk-components`: next to gcloud auth configurations
 - `$(dirname ASDF_CONFIG_FILE)/.default-cloud-sdk-components`: relative to `.asdfrc` if configured
 - `$HOME/.default-cloud-sdk-components`: Home dir
+
+> NOTE: by default `CLOUDSDK_CONFIG=$HOME/.config/gcloud`
 
 Below is the list of available components (as of version `342.0.0`):
 
