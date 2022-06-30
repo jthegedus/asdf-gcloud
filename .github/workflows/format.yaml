@@ -31,7 +31,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: asdf-vm/actions/install@v1
+
+      - name: Setup asdf
+        uses: asdf-vm/actions/setup@v1
+      - name: Cache asdf
+        uses: actions/cache@v2
+        with:
+          path: |
+            /home/runner/.asdf
+          key: ${{ runner.os }}-asdf-${{ hashFiles('**/.tool-versions') }}
+          restore-keys: |
+            ${{ runner.os }}-asdf-
+      - name: Install dependencies in .tool-versions
+        uses: asdf-vm/actions/install@v1
+
       - name: Format markdown with Deno
         run: deno fmt *.md
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -45,7 +58,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: asdf-vm/actions/install@v1
+
+      - name: Setup asdf
+        uses: asdf-vm/actions/setup@v1
+      - name: Cache asdf
+        uses: actions/cache@v2
+        with:
+          path: |
+            /home/runner/.asdf
+          key: ${{ runner.os }}-asdf-${{ hashFiles('**/.tool-versions') }}
+          restore-keys: |
+            ${{ runner.os }}-asdf-
+      - name: Install dependencies in .tool-versions
+        uses: asdf-vm/actions/install@v1
+
       - name: Format bash with shfmt
         run: ./scripts/format.bash
       - uses: stefanzweifel/git-auto-commit-action@v4
