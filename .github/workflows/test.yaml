@@ -42,7 +42,7 @@ jobs:
           echo "$HOME/bats-core/bin" >>"$GITHUB_PATH"
       - name: Download asdf core test/banned_commands.bats
         run: |
-          curl -o https://raw.githubusercontent.com/asdf-vm/asdf/master/test/banned_commands.bats test/banned_commands.bats
+          curl https://raw.githubusercontent.com/asdf-vm/asdf/master/test/banned_commands.bats -o test/banned_commands.bats
       - name: Run Bats tests
         run: bats test
         env:
