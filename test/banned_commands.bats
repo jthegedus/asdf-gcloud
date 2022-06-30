@@ -1,5 +1,9 @@
 #!/usr/bin/env bats
 
+# NOTE: Taken from asdf core repo test file of the same name.
+#       Modified to remove testing of file not present in plugin repos. Diff this file with that to see.
+#       Source: https://github.com/asdf-vm/asdf/blob/624aede7f3480cd6a8817d5a73b72227e87fa668/test/banned_commands.bats
+
 banned_commands=(
 	# Process substitution isn't POSIX compliant and cause trouble
 	"<("
