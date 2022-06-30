@@ -89,7 +89,7 @@ function get_os_name() {
 		log_failure_and_exit "Script only supports macOS and Ubuntu"
 		;;
 	esac
-	echo "${os_name}"
+	printf "%s\\n" "${os_name}"
 }
 
 function get_plugin_name() {
