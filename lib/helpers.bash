@@ -7,5 +7,5 @@ function construct_gcs_object() {
 	local os_name="${2}"
 	local os_architecture="${3}"
 
-	echo "google-cloud-sdk-${install_version}-${os_name}-${os_architecture}.tar.gz"
+	printf "%s\\n" "google-cloud-sdk-${install_version}-${os_name}-${os_architecture}.tar.gz"
 }
