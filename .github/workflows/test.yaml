@@ -5,8 +5,11 @@ on:
       - main
   pull_request:
 
+env:
+  BATS_VERSION: v1.7.0
+
 jobs:
-  plugin_test:
+  plugin:
     name: asdf plugin test
     strategy:
       matrix:
@@ -19,3 +22,28 @@ jobs:
         uses: asdf-vm/actions/plugin-test@v1
         with:
           command: gcloud --version
+
+  unit:
+    name: bats test
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install bats
+        run: |
+          git clone --depth 1 --branch "${{ env.BATS_VERSION }}" https://github.com/bats-core/bats-core.git $HOME/bats-core
+          echo "$HOME/bats-core/bin" >>"$GITHUB_PATH"
+      - name: Download asdf core test/banned_commands.bats
+        run: |
+          curl -K https://raw.githubusercontent.com/asdf-vm/asdf/master/test/banned_commands.bats >> test/banned_commands.bats
+      - name: Run Bats tests
+        run: bats test
+        env:
+          GITHUB_API_TOKEN: ${{ github.token }}
