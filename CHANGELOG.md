@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.1.0...v1.2.0) (2022-06-30)
+
+
+### Features
+
+* support CLOUDSDK_CONFIG env var ([#54](https://www.github.com/jthegedus/asdf-gcloud/issues/54)) ([e1896e1](https://www.github.com/jthegedus/asdf-gcloud/commit/e1896e1283624b1ae4b37907a59d302ac9c12997))
+
 ## [1.1.0](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.0.2...v1.1.0) (2021-07-20)
 
 
