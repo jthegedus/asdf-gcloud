@@ -25,10 +25,6 @@ function log_warning() {
 }
 # END Logging
 
-function default_cloud_sdk_config() {
-	printf "%s\\n" "${CLOUDSDK_CONFIG:-"$HOME/.config/gcloud"}"
-}
-
 function check_dependencies() {
 	local dependencies_file="${1}"
 	local failure_type="${2}" # should be "warning" or "failure"

@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+function default_cloud_sdk_config() {
+	printf "%s\\n" "${CLOUDSDK_CONFIG:-"$HOME/.config/gcloud"}"
+}
+
 function construct_gcs_object() {
 	local install_version="${1}"
 	local os_name="${2}"

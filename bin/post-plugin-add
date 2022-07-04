@@ -5,7 +5,7 @@ set -euo pipefail
 current_script_path="${BASH_SOURCE[0]}"
 plugin_dir="$(dirname "$(dirname "$current_script_path")")"
 
-# shellcheck source=../lib/utils.bash
-source "${plugin_dir}/lib/utils.bash"
+# shellcheck source=../lib/plugin.bash
+source "${plugin_dir}/lib/plugin.bash"
 
 check_dependencies "$(dirname "$0")/../lib/dependencies.txt" "warning"
