@@ -3,7 +3,13 @@
 ## Setup
 
 1. `git clone https://github.com/jthegedus/asdf-gcloud.git`
-2. `asdf install`
+1. ```
+   asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
+   asdf plugin add bats https://github.com/timgluz/asdf-bats.git
+   asdf plugin add shellcheck https://github.com/luizm/asdf-shellcheck.git
+   asdf plugin add shfmt https://github.com/luizm/asdf-shfmt.git
+   ```
+1. `asdf install`
 
 ## Structure
 
