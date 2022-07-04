@@ -43,11 +43,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
       - name: Install dependencies in .tool-versions
         uses: asdf-vm/actions/install@v1
-
-      # - name: Download asdf core test/banned_commands.bats
-      #   run: |
-      #     curl https://raw.githubusercontent.com/asdf-vm/asdf/master/test/banned_commands.bats -o ./test/banned_commands.bats
-      #     curl https://raw.githubusercontent.com/asdf-vm/asdf/master/test/test_helpers.bash -o ./test/test_helpers.bash
       - name: Run Bats tests
         run: bats test
         env:
