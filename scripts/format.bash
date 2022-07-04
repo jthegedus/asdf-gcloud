@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-exec shfmt -w .
+shfmt -w .
+deno fmt *.md
