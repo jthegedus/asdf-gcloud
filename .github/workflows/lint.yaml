@@ -40,11 +40,8 @@ jobs:
       - name: Cache asdf
         uses: actions/cache@v2
         with:
-          path: |
-            /home/runner/.asdf
-          key: ${{ runner.os }}-asdf-${{ hashFiles('**/.tool-versions') }}
-          restore-keys: |
-            ${{ runner.os }}-asdf-
+          path: ~/.asdf/
+          key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
       - name: Install dependencies in .tool-versions
         uses: asdf-vm/actions/install@v1
 
