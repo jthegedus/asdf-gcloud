@@ -6,7 +6,9 @@
   <img src="assets/logo_lockup_cloud_rgb.png" height="42" align="middle" />
 </a>
 
-[GCloud CLI](https://cloud.google.com/sdk/gcloud/reference) plugin for [asdf version manager](https://asdf-vm.com) allowing you to pin `gcloud` versions for each GCP project.
+[GCloud CLI](https://cloud.google.com/sdk/gcloud/reference) plugin for
+[asdf version manager](https://asdf-vm.com) allowing you to pin `gcloud`
+versions for each GCP project.
 
 ![asdf-gcloud](./assets/asdf-gcloud.png)
 
@@ -23,7 +25,9 @@
 
 # Dependencies
 
-Are tracked in [lib/dependencies.txt](lib/dependencies.txt) and checked on installation of plugin and `asdf install gcloud *`. The core dependencies are: `bash`, `curl`, `python`, `sort`, `tar`.
+Are tracked in [lib/dependencies.txt](lib/dependencies.txt) and checked on
+installation of plugin and `asdf install gcloud *`. The core dependencies are:
+`bash`, `curl`, `python`, `sort`, `tar`.
 
 # Install
 
@@ -49,13 +53,19 @@ These commands also apply to `asdf local gcloud <version>`.
 
 # Why?
 
-The asdf config file, `.tool-versions`, allows pinning each tool in your project to a specific version. This ensures that ALL developers are using the same version of each tool. Same `python`, same `gcloud`, same `terraform` etc.
+The asdf config file, `.tool-versions`, allows pinning each tool in your project
+to a specific version. This ensures that ALL developers are using the same
+version of each tool. Same `python`, same `gcloud`, same `terraform` etc.
 
-When you update a version in `.tool-versions`, `asdf` will prompt all users who do not have the correct versions to upgrade. This enables whole teams to update their tools in unison.
+When you update a version in `.tool-versions`, `asdf` will prompt all users who
+do not have the correct versions to upgrade. This enables whole teams to update
+their tools in unison.
 
 # Default Cloud SDK Components
 
-`asdf-gcloud` can automatically install a set of Cloud SDK Components after each `asdf install gcloud <version>`. To enable this feature you must have a file that lists one COMPONENT_ID per line. For example:
+`asdf-gcloud` can automatically install a set of Cloud SDK Components after each
+`asdf install gcloud <version>`. To enable this feature you must have a file
+that lists one COMPONENT_ID per line. For example:
 
 ```
 alpha
@@ -64,11 +74,15 @@ cloud-build-local
 cloud-firestore-emulator
 ```
 
-This file must be named `.default-cloud-sdk-components` and be at one of the following locations:
+This file must be named `.default-cloud-sdk-components` and be at one of the
+following locations:
 
-- `$CLOUDSDK_CONFIG/.default-cloud-sdk-components`: next to gcloud auth configurations
-- `$HOME/.config/gcloud/.default-cloud-sdk-components`: next to gcloud auth configurations
-- `$(dirname ASDF_CONFIG_FILE)/.default-cloud-sdk-components`: relative to `.asdfrc` if configured
+- `$CLOUDSDK_CONFIG/.default-cloud-sdk-components`: next to gcloud auth
+  configurations
+- `$HOME/.config/gcloud/.default-cloud-sdk-components`: next to gcloud auth
+  configurations
+- `$(dirname ASDF_CONFIG_FILE)/.default-cloud-sdk-components`: relative to
+  `.asdfrc` if configured
 - `$HOME/.default-cloud-sdk-components`: Home dir
 
 > NOTE: by default `CLOUDSDK_CONFIG=$HOME/.config/gcloud`
@@ -122,11 +136,14 @@ Below is the list of available components (as of version `342.0.0`):
 ~/.asdf/lib/commands/command-exec.bash: line 23: shim_args[@]: unbound variable
 ```
 
-**This is expected** as `gcloud` requires a command. `asdf-gcloud` sets the Bash option for `nounset` variables which makes running `gcloud` without commands appear as an `asdf` error. You should always pass a command to `gcloud`.
+**This is expected** as `gcloud` requires a command. `asdf-gcloud` sets the Bash
+option for `nounset` variables which makes running `gcloud` without commands
+appear as an `asdf` error. You should always pass a command to `gcloud`.
 
 # Contributing
 
-Contributions of any kind welcome! See the [contributing guide](CONTRIBUTING.md).
+Contributions of any kind welcome! See the
+[contributing guide](CONTRIBUTING.md).
 
 [Thanks goes to these contributors](https://github.com/jthegedus/asdf-gcloud/graphs/contributors)!
 

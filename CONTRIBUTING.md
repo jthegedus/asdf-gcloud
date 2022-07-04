@@ -8,7 +8,8 @@
 ## Structure
 
 - `bin/*`: asdf plugin functions
-- `lib/dependencies.txt`: list of dependencies required for this plugin to execute and install the tool as well as the tool's dependencies.
+- `lib/dependencies.txt`: list of dependencies required for this plugin to
+  execute and install the tool as well as the tool's dependencies.
 - `lib/helpers.bash`: helper functions that are asdf-gcloud specific
 - `lib/utils.bash`: utility functions that are asdf-plugin agnostic
 
