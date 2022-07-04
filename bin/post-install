@@ -6,7 +6,7 @@ current_script_path="${BASH_SOURCE[0]}"
 plugin_dir="$(dirname "$(dirname "$current_script_path")")"
 
 # shellcheck source=../lib/plugin.bash
-source "${plugin_dir}/lib/plugin.bash"/
+source "${plugin_dir}/lib/plugin.bash"
 # shellcheck source=../lib/helpers.bash
 source "${plugin_dir}/lib/helpers.bash"
 
