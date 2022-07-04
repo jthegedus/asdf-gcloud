@@ -26,8 +26,8 @@ jobs:
             - '**.bash'
 
   markdown:
-    needs: changes
-    if: ${{ needs.changes.outputs.markdown == 'true' }}
+    needs: detect_file_changes
+    if: ${{ needs.detect_file_changes.outputs.markdown == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -50,8 +50,8 @@ jobs:
           commit_message: "chore: format markdown files"
 
   bash:
-    needs: changes
-    if: ${{ needs.changes.outputs.bash == 'true' }}
+    needs: detect_file_changes
+    if: ${{ needs.detect_file_changes.outputs.bash == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
