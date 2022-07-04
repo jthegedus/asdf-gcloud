@@ -130,10 +130,6 @@ Contributions of any kind welcome! See the [contributing guide](CONTRIBUTING.md)
 
 [Thanks goes to these contributors](https://github.com/jthegedus/asdf-gcloud/graphs/contributors)!
 
-## Why are there Node deps here?
-
-I decided the value of [commitlint](https://commitlint.js.org/#/) & sharing Git Hooks with [husky](https://typicode.github.io/husky/#/) were greater than the cost of including these deps. Not only this, but dogfooding `asdf` for dev deps makes this less of an issue.
-
 # License
 
 [MIT License](LICENSE) © [James Hegedus](https://github.com/jthegedus/)
