@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-current_script_dir="$( cd -- "$(dirname "$BASH_SOURCE[0]")" >/dev/null 2>&1 ; pwd -P )"
+current_script_dir="$( cd -- "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 ; pwd -P )"
 plugin_dir="$(dirname "$current_script_dir")"
 
 # shellcheck source=../lib/utils.bash
