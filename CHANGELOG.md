@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.0...v1.2.1) (2022-08-30)
+
+
+### Bug Fixes
+
+* make `$plugin_dir` absolute path ([#63](https://github.com/jthegedus/asdf-gcloud/issues/63)) ([6b9e673](https://github.com/jthegedus/asdf-gcloud/commit/6b9e673dc5d963536532f3c36489c67463787fdb))
+
 ## [1.2.0](https://www.github.com/jthegedus/asdf-gcloud/compare/v1.1.0...v1.2.0) (2022-06-30)
 
 
