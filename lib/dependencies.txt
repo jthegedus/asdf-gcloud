@@ -7,7 +7,7 @@ getconf
 grep
 mktemp
 printf
-python
+python3
 rm
 source
 sort
