@@ -22,7 +22,7 @@ function list_all() {
 	local list=""
 	while "${more}"; do
 		res=$(fetch "${nextPageToken}")
-		if [[ "${res}" =~ nextPageToken\"\:\ \"([a-zA-Z0-9]+)\" ]]; then
+		if [[ "${res}" =~ nextPageToken\"\:\ \"([a-zA-Z0-9=]+)\" ]]; then
 			nextPageToken="${BASH_REMATCH[1]}"
 		else
 			more=false
