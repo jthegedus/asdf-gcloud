@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.2](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.1...v1.2.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* fix nextPageToken regexp in list-all, [#70](https://github.com/jthegedus/asdf-gcloud/issues/70) ([#72](https://github.com/jthegedus/asdf-gcloud/issues/72)) ([335b3ff](https://github.com/jthegedus/asdf-gcloud/commit/335b3ff62335f61c493a30381e1745d98be5cb9f))
+* require python3 instead of python ([9d7ff92](https://github.com/jthegedus/asdf-gcloud/commit/9d7ff928ed699a48d005341c8b57948bbf954067))
+
 ## [1.2.1](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.0...v1.2.1) (2022-08-30)
 
 
