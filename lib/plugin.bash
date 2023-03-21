@@ -25,10 +25,6 @@ function log_warning() {
 }
 # END Logging
 
-function default_cloud_sdk_config() {
-	printf "%s\\n" "${CLOUDSDK_CONFIG:-"$HOME/.config/gcloud"}"
-}
-
 function check_dependencies() {
 	local dependencies_file="${1}"
 	local failure_type="${2}" # should be "warning" or "failure"
@@ -73,7 +69,7 @@ function get_os_architecture() {
 		;;
 	esac
 
-	echo "${architecture}"
+	printf "%s\\n" "${architecture}"
 }
 
 function get_os_name() {
@@ -89,7 +85,7 @@ function get_os_name() {
 		log_failure_and_exit "Script only supports macOS and Ubuntu"
 		;;
 	esac
-	echo "${os_name}"
+	printf "%s\\n" "${os_name}"
 }
 
 function get_plugin_name() {

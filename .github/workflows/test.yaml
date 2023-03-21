@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  plugin_test:
+  plugin:
     name: asdf plugin test
     strategy:
       matrix:
@@ -19,3 +19,31 @@ jobs:
         uses: asdf-vm/actions/plugin-test@v1
         with:
           command: gcloud --version
+
+  unit:
+    name: bats test
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup asdf
+        uses: asdf-vm/actions/setup@v1
+      - name: Cache asdf
+        uses: actions/cache@v2
+        with:
+          path: ~/.asdf/
+          key: ${{ runner.os }}-${{ hashFiles('**/.tool-versions') }}
+      - name: Install dependencies in .tool-versions
+        uses: asdf-vm/actions/install@v1
+      - name: Run Bats tests
+        run: bats test
+        env:
+          GITHUB_API_TOKEN: ${{ github.token }}

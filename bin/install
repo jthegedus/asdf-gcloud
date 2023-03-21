@@ -7,8 +7,8 @@ plugin_dir="$(dirname "$(dirname "$current_script_path")")"
 
 # shellcheck source=../lib/helpers.bash
 source "${plugin_dir}/lib/helpers.bash"
-# shellcheck source=../lib/utils.bash
-source "${plugin_dir}/lib/utils.bash"
+# shellcheck source=../lib/plugin.bash
+source "${plugin_dir}/lib/plugin.bash"
 
 install_gcloud() {
 	tmp_download_dir=$(mktemp -d -t 'asdf_gcloud_XXXXXX')
