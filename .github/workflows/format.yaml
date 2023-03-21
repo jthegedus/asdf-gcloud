@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: asdf-vm/actions/install@v1
+      - uses: asdf-vm/actions/install@v2
       - name: Format markdown with Deno
         run: deno fmt *.md
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: asdf-vm/actions/install@v1
+      - uses: asdf-vm/actions/install@v2
       - name: Format bash with shfmt
         run: ./scripts/format.bash
       - uses: stefanzweifel/git-auto-commit-action@v4
