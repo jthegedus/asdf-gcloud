@@ -2,22 +2,18 @@
 
 set -eo pipefail
 
-current_script_dir="$(
-	cd -- "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1
-	pwd -P
-)"
-plugin_dir="$(dirname "$current_script_dir")"
-
-# shellcheck source=../lib/utils.bash
-source "${plugin_dir}/lib/utils.bash"
-
-if [[ ! -x "$(command -v python3)" ]]; then
-	log_failure_and_exit "Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python"
+if [[ -x "$(command -v python3)" ]]; then
+	python_cmd="python3"
+elif [[ -x "$(command -v python)" ]]; then
+	python_cmd="python"
+else
+	printf "🚨  %s\\n" "Python not found and is required for gcloud. Might I suggest https://github.com/danhper/asdf-python"
+	exit 1
 fi
 
 # credit: https://unix.stackexchange.com/a/56846/397902
 if [ -z "${CLOUDSDK_PYTHON:+1}" ]; then
 	# undefined or defined and empty
-	python_sdk="$(command -v python3)"
-	export CLOUDSDK_PYTHON=${python_sdk}
+	export CLOUDSDK_PYTHON="$python_cmd"
 fi
+
