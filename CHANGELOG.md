@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.3](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.2...v1.2.3) (2023-06-18)
+
+
+### Bug Fixes
+
+* check for both python3 and python in exec-env ([#78](https://github.com/jthegedus/asdf-gcloud/issues/78)) ([502fd1c](https://github.com/jthegedus/asdf-gcloud/commit/502fd1c7cbbfaf9c1cf6f4f3f0e4e6a35c1a960d))
+* kubectl with gke-gcloud-auth-plugin, unbound variable ([#77](https://github.com/jthegedus/asdf-gcloud/issues/77)) ([d13787e](https://github.com/jthegedus/asdf-gcloud/commit/d13787e1ba56126fa9b2141fd4870fc473ce7035))
+
 ## [1.2.2](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.1...v1.2.2) (2022-11-14)
 
 
