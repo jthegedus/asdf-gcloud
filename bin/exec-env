@@ -16,4 +16,3 @@ if [ -z "${CLOUDSDK_PYTHON:+1}" ]; then
 	# undefined or defined and empty
 	export CLOUDSDK_PYTHON="$python_cmd"
 fi
-
