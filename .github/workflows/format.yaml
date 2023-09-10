@@ -15,7 +15,7 @@ jobs:
       markdown: ${{ steps.filter.outputs.markdown }}
       frontend: ${{ steps.filter.outputs.bash }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: dorny/paths-filter@v2
       id: filter
       with:
@@ -30,7 +30,7 @@ jobs:
     if: ${{ needs.changes.outputs.markdown == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - name: Format markdown with Deno
         run: deno fmt *.md
@@ -44,7 +44,7 @@ jobs:
     if: ${{ needs.changes.outputs.bash == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - name: Format bash with shfmt
         run: ./scripts/format.bash
