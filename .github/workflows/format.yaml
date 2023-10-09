@@ -34,7 +34,7 @@ jobs:
       - uses: asdf-vm/actions/install@v2
       - name: Format markdown with Deno
         run: deno fmt *.md
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         name: commit markdown file format
         with:
           commit_message: "chore: format markdown files"
@@ -48,7 +48,7 @@ jobs:
       - uses: asdf-vm/actions/install@v2
       - name: Format bash with shfmt
         run: ./scripts/format.bash
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         name: commit markdown file format
         with:
           commit_message: "chore: format shell script files"
