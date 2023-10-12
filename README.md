@@ -17,6 +17,7 @@
 - [Dependencies](#dependencies)
 - [Install](#install)
 - [Why?](#why)
+- [Supported Versions](#supported-versions)
 - [Default Cloud SDK Components](#default-cloud-sdk-components)
 - [Contributing](#contributing)
 - [License](#license)
@@ -52,6 +53,10 @@ These commands also apply to `asdf local gcloud <version>`.
 The asdf config file, `.tool-versions`, allows pinning each tool in your project to a specific version. This ensures that ALL developers are using the same version of each tool. Same `python`, same `gcloud`, same `terraform` etc.
 
 When you update a version in `.tool-versions`, `asdf` will prompt all users who do not have the correct versions to upgrade. This enables whole teams to update their tools in unison.
+
+# Supported Versions
+
+gcloud releases from 352.0.0 and higher can be installed.
 
 # Default Cloud SDK Components
 
