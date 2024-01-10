@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.3...v1.2.4) (2024-01-10)
+
+
+### Bug Fixes
+
+* detect & skip python install if not necessary ([#85](https://github.com/jthegedus/asdf-gcloud/issues/85)) ([81b5d2c](https://github.com/jthegedus/asdf-gcloud/commit/81b5d2c6f35db333193de0dc79615720db6cd803))
+
 ## [1.2.3](https://github.com/jthegedus/asdf-gcloud/compare/v1.2.2...v1.2.3) (2023-06-18)
 
 
