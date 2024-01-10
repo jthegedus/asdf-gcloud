@@ -32,7 +32,11 @@ install_gcloud() {
 	log_success "extracted!"
 
 	log_info "🚧  installing..."
-	"${ASDF_INSTALL_PATH}/install.sh" --usage-reporting=false --path-update=false --quiet
+	if [[ "${ASDF_INSTALL_VERSION}" > "352.0.0" ]]; then
+		"${ASDF_INSTALL_PATH}/install.sh" --usage-reporting=false --path-update=false --install-python=false --quiet
+	else
+		"${ASDF_INSTALL_PATH}/install.sh" --usage-reporting=false --path-update=false --quiet
+	fi
 	# test executable
 	test -x "${ASDF_INSTALL_PATH}/bin/gcloud" || log_failure_and_exit "Expected ${ASDF_INSTALL_PATH}/bin/gcloud to be executable."
 	log_success "gcloud ${ASDF_INSTALL_VERSION} installed!"
