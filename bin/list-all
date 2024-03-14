@@ -27,7 +27,7 @@ function list_all() {
 		else
 			more=false
 		fi
-		additions=$(echo "${res}" | grep -Eo "name.*google-cloud-sdk-[0-9]+\.[0-9]+\.[0-9]+-(linux)-x86_64" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+")
+		additions=$(echo "${res}" | grep -Eo "name.*google-cloud-sdk-[0-9]+\.[0-9]+\.[0-9]+-(linux)-x86_64" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+" || true)
 		if [[ -n "${additions}" ]]; then
 			list="${list}\n${additions}"
 		fi
